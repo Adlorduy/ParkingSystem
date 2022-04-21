@@ -1,0 +1,49 @@
+@startuml Parking
+
+class Car{
+    - Color: str
+    - Plate: str
+    - wash: boolean
+    + move(): none
+}
+
+class ClientCar{
+    - arrive: datetime
+    - leave: datetime
+    + pay(parking:Parking):none
+}
+
+class WorkerCar
+
+class Parking{
+    - size: int
+    - cars: list[Car]
+    - workers: list[Workers]
+    - money:float
+
+    + add(car:Car):none
+    + del(car:Car):none
+}
+
+class User{
+    + login(): none
+    + logout(): none
+    + save_workers_cars()
+    + save_cars()
+}
+
+class Workers{
+    - car:WorkerCar
+    - free:boolean
+    + wash(car:Car):none
+    + freetime():none
+}
+
+User "1" *-- "0..1" Parking: may have >
+Parking "1" o-- "0..*" Car: has in >
+Car <|-- ClientCar
+Car <|-- WorkerCar
+WorkerCar "0..1" --* "1"Workers: < has 
+ClientCar"0..*" -- "1"Workers: < wash
+
+@enduml
