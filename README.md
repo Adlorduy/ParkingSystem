@@ -11,6 +11,12 @@ We will have a vehicle registration system where the basic data of the same are 
 
 <img src="/Parking.png" alt="UML Diagram"/>
 
+## How To Use Our Repo
+
+To test our most recent advance, make sure to copy the file named "BasicClase" as a python file. In addition, you should have a text file named "Plates" in the same folder as the python file. You can use the Plates.txt file from the repository or create it yourself, the important thing is to keep the name intact. 
+
+Finally, run the python file. The functionality worked was to get the date of entry, and save information of the car. 
+
 ### Functional and non-functional requirements
 
 #### Functional requirements
