@@ -18,7 +18,7 @@ class Parking():
 
   def update_workers_cars(self):
     self.workers = []
-    with open ("trabajadores.txt") as file:
+    with open ("Plates.txt") as file:
       archivo = file.read().split("\n")
     for x in range(len(archivo)):
       self.workers.append(archivo[x])
