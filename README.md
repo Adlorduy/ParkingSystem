@@ -7,6 +7,10 @@ Have you ever been in a parking lot and can’t find a free parking spot? Either
 
 We will have a vehicle registration system where the basic data of the same are stored, as well as additional data regarding the date and time, in addition, the owner of the vehicle can decide whether to use our services inside the parking (if available), which will be invoiced together with the parking lot on a single invoice. Additional, after entering the vehicle data to our system, you will be assigned a place inside the parking lot (you will take into account if there is a disabled person or not). 
 
+## UML Diagram
+
+<img src="/Parking.png" alt="UML Diagram"/>
+
 ### Functional and non-functional requirements
 
 #### Functional requirements
