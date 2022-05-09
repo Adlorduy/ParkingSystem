@@ -26,7 +26,7 @@ class Parking{
 }
 
 class User{
-    + login(): none
+    + name:string
     + logout(): none
     + save_workers_cars()
     + save_cars()
@@ -39,6 +39,25 @@ class Workers{
     + freetime():none
 }
 
+class Log_in{
+    +addUser()
+    +join()
+}
+
+class Password{
+    - passwords: file
+}
+
+class Checker{
+    +ValidUser()
+    +checkUserAndPassword()
+}
+
+
+
+Password <|-- Checker
+Checker <|-- Log_in
+Log_in <|-- User
 User "1" *-- "0..1" Parking: may have >
 Parking "1" o-- "0..*" Car: has in >
 Car <|-- ClientCar
