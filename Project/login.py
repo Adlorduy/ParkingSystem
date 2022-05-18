@@ -1,5 +1,4 @@
-from venv import create
-from functions import createFile, openFile
+from functions import createFile, openFile, writeFile
 
 class Password():    
     def __init__(self) -> None:
@@ -42,6 +41,4 @@ class User(Password):
     super().__init__()
 
   def add(self):
-        archivo = open(self.filename, 'a')
-        archivo.write(f'{self.name},{self.password}\n')
-        archivo.close
+      writeFile(self.filename,f'{self.name},{self.password}\n' )

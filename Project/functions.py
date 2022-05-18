@@ -1,3 +1,4 @@
+from datetime import datetime
 import PySimpleGUI as sg
 
 def createFile(name):
@@ -7,6 +8,11 @@ def openFile(name):
     with open (name) as file:
       archivo = file.read().split("\n")
     return archivo
+
+def writeFile(file, text = ""):
+    archivo = open(file, 'a')
+    archivo.write(str(text))
+    archivo.close
 
 def login_layout():
     layout = [  [sg.Text('Inicio de sesión')],
@@ -22,3 +28,6 @@ def park_layout():
              [sg.Button('Cerrar sesión', key="-LOGOUT-")]   
                 ]
     return layout
+
+def stringToDate(date):
+    return datetime.strptime(date,"%Y-%m-%d %H:%M:%S.%f")

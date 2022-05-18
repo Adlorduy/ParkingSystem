@@ -1,8 +1,8 @@
-from importlib.resources import path
 import os
 import PySimpleGUI as sg
 from functions import createFile, login_layout, park_layout
 from login import User, Verifier
+from parking import Parking
 
 verifier = Verifier()
 sg.theme("DarkAmber")
@@ -40,6 +40,9 @@ while gen_sw:
                     sc['-MESS-'].update("Usuario no disponible...")
     sc.close()
     sc = sg.Window("Parqueadero", park_layout())
+    Park = Parking(0,0, user.name)
+    Park.update_cars("cars.txt", 0)
+    Park.update_cars("workers.txt", 1)
     
     while park_sw:
         event, values = sc.read()
@@ -47,10 +50,9 @@ while gen_sw:
             park_sw = False
             login_sw = True
         elif event == "-ADDCAR-":
-            pass
+            Park.add_car(f'{values[0]}{values[1]}')
         else:
             park_sw = False
 
     gen_sw = login_sw or park_sw
     sc.close()
-
