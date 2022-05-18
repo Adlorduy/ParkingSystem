@@ -15,10 +15,7 @@ class Parking():
 
 
   def add_car(self, plate):
-    if plate in self.workers:
-      Carro = WorkerCar(plate) 
-      writeFile(f'{self.path}/workers.txt', f'{Carro.plate}\n')
-    elif not self.in_list(plate, self.cars):
+    if not self.in_list(plate, self.cars):
         Carro = ClientCar(plate)
         self.cars.append(Carro)
         writeFile(f'{self.path}/cars.txt', f'{Carro.plate},{Carro.entrada}\n')
@@ -32,15 +29,19 @@ class Parking():
   def update_cars(self, file_name, sw):
     with open (self.path+'/'+file_name) as file:
       archivo = file.read().split("\n")
-    for x in archivo:
-      x = x.split(',')
-      print(x)
-      if sw == 0:
-          Carro = ClientCar(x[0], stringToDate(x[1]))
-          self.cars.append(Carro)
-      else:
-        Carro = WorkerCar(x[0])
-        self.workers.append(Carro)
+    if(archivo ==[""]):
+      print("archivo vacio")
+    else:
+      for x in archivo:
+        if(x == [""]):
+          x = x.split(',')
+          print(x)
+          if sw == 0:
+            Carro = ClientCar(x[0], stringToDate(x[1]))
+            self.cars.append(Carro)
+          else:
+            Carro = WorkerCar(x[0])
+            self.workers.append(Carro)
     
 
 class Car():

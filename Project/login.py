@@ -1,3 +1,4 @@
+import base64
 from functions import createFile, openFile, writeFile
 
 class Password():    
@@ -16,7 +17,7 @@ class Verifier(Password):
         try:
             for x in self.file:
                 username, passw = x.split(",")
-                if((username == user.name) & (passw ==user.password)):
+                if((username == user.name) & (passw == str(user.password))):
                     return True
             return False
         except:
@@ -37,7 +38,8 @@ class Verifier(Password):
 class User(Password):
   def __init__(self, name, password):
     self.name = name
-    self.password = password
+    self.password = password.encode("UTF-8")
+    self.password = base64.b64encode(self.password)
     super().__init__()
 
   def add(self):

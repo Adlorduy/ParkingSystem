@@ -1,10 +1,8 @@
-from datetime import datetime
+from functions import writeFile
 
+writeFile("vacio.txt")
 
-x = datetime.now()
-x = str(x)
-print(type(x))
+with open("vacio.txt") as file:
+    archivo = file.read().split("\n")
 
-x = stringToDate(x)
-print(type(x))
-
+print(archivo)

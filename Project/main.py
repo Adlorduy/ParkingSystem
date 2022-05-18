@@ -1,7 +1,8 @@
 import os
 import PySimpleGUI as sg
+import base64
 from functions import createFile, login_layout, park_layout
-from login import User, Verifier
+from login import Password, User, Verifier
 from parking import Parking
 
 verifier = Verifier()
@@ -18,7 +19,7 @@ while gen_sw:
             login_sw= False
             park_sw= False
         else:
-            user = User(values[0], values[1])
+            user = User(values[0],values[1])
             if event == "-LOGIN-":
                 if verifier.log_in(user):
                     sc['-MESS-'].update("Iniciando sesión...")
@@ -28,7 +29,7 @@ while gen_sw:
                 else:
                     sc['-MESS-'].update("Usuario o contraseña incorrect@...")
             else:
-                if verifier.is_free(user):
+                if verifier.is_free(user) and user.name != "" and user.password != "":
                     user.add()
                     sc['-MESS-'].update("Creando cuenta...")
                     ruta = user.name;
