@@ -1,2 +1,2 @@
-## Input de con cuanto va a pagar la persona
-## Label de pago y label de vuelto
+### Input de con cuanto va a pagar la persona
+### label de vuelto
