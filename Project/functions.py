@@ -1,5 +1,4 @@
 from datetime import datetime
-from sre_parse import State
 import PySimpleGUI as sg
 
 def createFile(name):
