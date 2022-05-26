@@ -128,8 +128,3 @@ class ClientCar(Car):
 class WorkerCar(Car):
   def __init__(self, plate):
     super().__init__(plate)
-
-
-class Worker():
-  def __init__(self):
-    pass
