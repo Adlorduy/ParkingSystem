@@ -1,68 +1,54 @@
 @startuml Parking
 
 class Car{
-    - Color: str
     - Plate: str
-    - wash: boolean
-    + move(): none
 }
 
 class ClientCar{
-    - arrive: datetime
-    - leave: datetime
-    + pay(parking:Parking):none
+    - entrada: datetime
+    - salida: datetime
+    + tiempo(): datetime
 }
 
 class WorkerCar
 
 class Parking{
+    - path: str
     - size: int
     - cars: list[Car]
-    - workers: list[Workers]
-    - money:float
-
+    - workers: list[WorkerCar]
+    - price: float
     + add(car:Car):none
     + del(car:Car):none
 }
 
+class Password{
+    - filename: str
+}
 class User{
     + name:string
-    + logout(): none
-    + save_workers_cars()
-    + save_cars()
-}
-
-class Workers{
-    - car:WorkerCar
-    - free:boolean
-    + wash(car:Car):none
-    + freetime():none
-}
-
-class Log_in{
-    +addUser()
-    +join()
-}
-
-class Password{
-    - passwords: file
-}
-
-class Checker{
-    +ValidUser()
-    +checkUserAndPassword()
+    + password:string
+    + add(): none
 }
 
 
+class Verifier{
+    +log_in(): boolean
+    +is_free(): boolean
+}
 
-Password <|-- Checker
-Checker <|-- Log_in
-Log_in <|-- User
-User "1" *-- "0..1" Parking: may have >
+
+left to right direction
+left to right direction
+User "0..*" -- "1" Verifier: may corroborate <
+Password <|-- User
+Password <|-- Verifier
+
+User "1" *-- "1" Parking: owns >
 Parking "1" o-- "0..*" Car: has in >
 Car <|-- ClientCar
 Car <|-- WorkerCar
-WorkerCar "0..1" --* "1"Workers: < has 
-ClientCar"0..*" -- "1"Workers: < wash
+
+
 
 @enduml
