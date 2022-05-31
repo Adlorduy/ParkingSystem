@@ -1,4 +1,4 @@
-@startuml Parking
+@startuml parking
 
 class Car{
     - Plate: str
@@ -18,16 +18,16 @@ class Parking{
     - cars: list[Car]
     - workers: list[WorkerCar]
     - price: float
-    + add(car:Car):none
-    + del(car:Car):none
+    + add(car:Car): none
+    + del(car:Car): none
 }
 
 class Password{
     - filename: str
 }
 class User{
-    + name:string
-    + password:string
+    + name:str
+    + password:str
     + add(): none
 }
 
