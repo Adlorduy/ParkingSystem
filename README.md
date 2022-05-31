@@ -2,7 +2,7 @@
 ## Solution to final proyect (OOP)
 ## UML Diagram
 
-<img src="/Parking.png" alt="UML Diagram"/>
+<img src="/parking.png" alt="UML Diagram"/>
 
 ## How To Use Our Repo
 
